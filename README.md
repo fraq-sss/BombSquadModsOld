@@ -1,2 +1,0 @@
-# BombSquad-Mods
-- TODO
