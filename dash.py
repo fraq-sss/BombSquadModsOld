@@ -51,10 +51,3 @@ def new_dash(self) -> None:
 
 old_dash = Spaz.on_punch_release
 Spaz.on_punch_release = new_dash
-
-
-# ba_meta require api 7
-# ba_meta export plugin
-
-class Dash(ba.Plugin):
-    pass
