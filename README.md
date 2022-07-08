@@ -1,4 +1,4 @@
-# BombSquadMods
+### BombSquadMods
 - __init__.py - Aктивирует плагины с файлов: pro.py, dash.py.
 
 - pro.py - Разблокировка про версии для игры.
