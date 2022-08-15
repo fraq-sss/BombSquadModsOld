@@ -1,4 +1,3 @@
-from ba import Plugin
 from bastd.actor.spazappearance import Appearance
 
 
@@ -9,4 +8,4 @@ names = (
 
 
 for name in names:
-	Appearance(name)
+    Appearance(name)
