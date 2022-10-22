@@ -78,15 +78,22 @@ class RemovePyCache(ba.Plugin):
         from shutil import rmtree
         paths = (
             'ba',
-            'bacommon',
+            'ba/ui',
             'bastd',
+            'bastd/activity',
             'bastd/actor',
             'bastd/game',
+            'bastd/keyboard',
             'bastd/mapdata',
             'bastd/ui',
             'bastd/ui/account',
+            'bastd/ui/coop',
             'bastd/ui/gather',
+            'bastd/ui/league',
+            'bastd/ui/playlist',
+            'bastd/ui/profile',
             'bastd/ui/settings',
+            'bastd/ui/soundtrack',
             'bastd/ui/store'
         )
         for path in paths:
