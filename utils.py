@@ -26,4 +26,4 @@ class ShowChatIcon(ba.Plugin):
 class UnlockTowerDMap(ba.Plugin):
     def on_app_running(self) -> None:
         from bastd.maps import TowerD
-        TowerD.play_types = ['melee', 'keep_away', 'team_flag', 'king_of_the_hill']
+        TowerD.get_play_types = lambda: ['melee', 'keep_away', 'team_flag', 'king_of_the_hill']
