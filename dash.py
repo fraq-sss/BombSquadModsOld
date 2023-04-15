@@ -2,7 +2,6 @@ import ba
 
 from bastd.actor.spaz import Spaz
 
-
 Spaz.dash = True
 
 
