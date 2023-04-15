@@ -4,8 +4,8 @@ from bastd.actor.spaz import Spaz
 Spaz.dash = True
 
 
-def new_dash(self) -> None:
-    old_dash(self)
+def new_hook(self: Spaz) -> None:
+    old_hook(self)
     time = ba.time(timeformat=ba.TimeFormat.MILLISECONDS) - self.last_punch_time_ms
     spaz = self.node
 
@@ -47,5 +47,5 @@ def new_dash(self) -> None:
         ba.timer(i * 0.01, impulse)
 
 
-old_dash = Spaz.on_punch_release
-Spaz.on_punch_release = new_dash
+old_hook = Spaz.on_punch_release
+Spaz.on_punch_release = new_hook
