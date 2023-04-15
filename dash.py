@@ -9,6 +9,14 @@ def new_hook(self: Spaz) -> None:
     time = ba.time(timeformat=ba.TimeFormat.MILLISECONDS) - self.last_punch_time_ms
     spaz = self.node
 
+    if self.dash == False \
+    or spaz.exists() == False \
+    or spaz.knockout > 0.0 \
+    or spaz.frozen > 0.0 \
+    or self.last_punch_time_ms == -9999 \
+    or time < 1000:
+        return
+
     def impulse() -> None:
         spaz.handlemessage("impulse",
         spaz.position[0],
@@ -21,14 +29,6 @@ def new_hook(self: Spaz) -> None:
         spaz.move_left_right * 30,
         spaz.position[1] + 5,
         spaz.move_up_down * -30)
-
-    if self.dash == False \
-    or spaz.exists() == False \
-    or spaz.knockout > 0.0 \
-    or spaz.frozen > 0.0 \
-    or self.last_punch_time_ms == -9999 \
-    or time < 1000:
-        return
 
     ba.emitfx(
         position=spaz.position,
