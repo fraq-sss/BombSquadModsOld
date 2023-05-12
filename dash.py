@@ -9,8 +9,8 @@ def new_hook(self: Spaz) -> None:
     time = ba.time(timeformat=ba.TimeFormat.MILLISECONDS) - self.last_punch_time_ms
     spaz = self.node
 
-    if self.dash == False \
-    or spaz.exists() == False \
+    if self.dash is False \
+    or spaz.exists() is False \
     or spaz.knockout > 0.0 \
     or spaz.frozen > 0.0 \
     or self.last_punch_time_ms == -9999 \
