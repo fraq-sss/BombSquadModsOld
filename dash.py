@@ -5,7 +5,7 @@ Spaz.dash = True
 
 
 def new_hook(spaz: Spaz) -> None:
-    old_hook(self)
+    old_hook(spaz)
     time = ba.time(timeformat=ba.TimeFormat.MILLISECONDS) - spaz.last_punch_time_ms
     node = spaz.node
 
