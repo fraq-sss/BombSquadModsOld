@@ -19,7 +19,7 @@ def new_hook(spaz: Spaz) -> None:
 
     def impulse() -> None:
         node.handlemessage(
-            "impulse",
+            'impulse',
             node.position[0],
             node.position[1],
             node.position[2],
@@ -45,7 +45,7 @@ def new_hook(spaz: Spaz) -> None:
     )
 
     ba.playsound(
-        ba.getsound("shieldHit"),
+        ba.getsound('shieldHit'),
         volume=time / 1000,
         position=node.position
     )
