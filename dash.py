@@ -4,35 +4,35 @@ from bastd.actor.spaz import Spaz
 Spaz.dash = True
 
 
-def new_hook(self: Spaz) -> None:
+def new_hook(spaz: Spaz) -> None:
     old_hook(self)
-    time = ba.time(timeformat=ba.TimeFormat.MILLISECONDS) - self.last_punch_time_ms
-    spaz = self.node
+    time = ba.time(timeformat=ba.TimeFormat.MILLISECONDS) - spaz.last_punch_time_ms
+    node = spaz.node
 
-    if self.dash is False \
-    or spaz.exists() is False \
-    or spaz.knockout > 0.0 \
-    or spaz.frozen > 0.0 \
-    or self.last_punch_time_ms == -9999 \
+    if spaz.dash is False \
+    or node.exists() is False \
+    or node.knockout > 0.0 \
+    or node.frozen > 0.0 \
+    or spaz.last_punch_time_ms == -9999 \
     or time < 1000:
         return
 
     def impulse() -> None:
-        spaz.handlemessage("impulse",
-        spaz.position[0],
-        spaz.position[1],
-        spaz.position[2],
-        spaz.move_left_right * 30,
-        spaz.position[1] + 5,
-        spaz.move_up_down * -30,
+        node.handlemessage("impulse",
+        node.position[0],
+        node.position[1],
+        node.position[2],
+        node.move_left_right * 30,
+        node.position[1] + 5,
+        node.move_up_down * -30,
         5, 5, 0, 0,
-        spaz.move_left_right * 30,
-        spaz.position[1] + 5,
-        spaz.move_up_down * -30)
+        node.move_left_right * 30,
+        node.position[1] + 5,
+        node.move_up_down * -30)
 
     ba.emitfx(
-        position=spaz.position,
-        velocity=spaz.velocity,
+        position=node.position,
+        velocity=node.velocity,
         count=50,
         scale=0.5,
         spread=1.0,
@@ -41,7 +41,7 @@ def new_hook(self: Spaz) -> None:
     ba.playsound(
         ba.getsound("shieldHit"),
         volume=time / 1000,
-        position=spaz.position)
+        position=node.position)
 
     for i in range(5):
         ba.timer(i * 0.01, impulse)
