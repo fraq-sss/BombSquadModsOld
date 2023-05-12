@@ -18,17 +18,22 @@ def new_hook(spaz: Spaz) -> None:
         return
 
     def impulse() -> None:
-        node.handlemessage("impulse",
-        node.position[0],
-        node.position[1],
-        node.position[2],
-        node.move_left_right * 30,
-        node.position[1] + 5,
-        node.move_up_down * -30,
-        5, 5, 0, 0,
-        node.move_left_right * 30,
-        node.position[1] + 5,
-        node.move_up_down * -30)
+        node.handlemessage(
+            "impulse",
+            node.position[0],
+            node.position[1],
+            node.position[2],
+            node.move_left_right * 30,
+            node.position[1] + 5,
+            node.move_up_down * -30,
+            5,
+            5,
+            0,
+            0,
+            node.move_left_right * 30,
+            node.position[1] + 5,
+            node.move_up_down * -30
+        )
 
     ba.emitfx(
         position=node.position,
@@ -36,12 +41,14 @@ def new_hook(spaz: Spaz) -> None:
         count=50,
         scale=0.5,
         spread=1.0,
-        chunk_type='spark')
+        chunk_type='spark'
+    )
 
     ba.playsound(
         ba.getsound("shieldHit"),
         volume=time / 1000,
-        position=node.position)
+        position=node.position
+    )
 
     for i in range(5):
         ba.timer(i * 0.01, impulse)
