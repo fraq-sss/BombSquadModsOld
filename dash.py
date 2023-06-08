@@ -1,11 +1,11 @@
+# ba_meta require api 7
+
 import ba
 from bastd.actor.spaz import Spaz
 
-Spaz.dash = True
-
 
 def new_hook(spaz: Spaz) -> None:
-    old_hook(spaz)
+    spaz.old_hook()
     time = ba.time(timeformat=ba.TimeFormat.MILLISECONDS) - spaz.last_punch_time_ms
     node = spaz.node
 
@@ -54,5 +54,10 @@ def new_hook(spaz: Spaz) -> None:
         ba.timer(i * 0.01, impulse)
 
 
-old_hook = Spaz.on_punch_release
-Spaz.on_punch_release = new_hook
+class Dash(ba.Plugin):
+    def on_app_running(self) -> None:
+        Spaz.dash_enabled = True
+        Spaz.old_hook = Spaz.on_punch_release
+
+        # Monkey-patching: https://www.geeksforgeeks.org/monkey-patching-in-python-dynamic-behavior/
+        Spaz.on_punch_release = new_hook
