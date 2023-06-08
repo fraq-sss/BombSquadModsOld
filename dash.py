@@ -58,6 +58,4 @@ class Dash(ba.Plugin):
     def on_app_running(self) -> None:
         Spaz.dash_enabled = True
         Spaz.old_hook = Spaz.on_punch_release
-
-        # Monkey-patching: https://www.geeksforgeeks.org/monkey-patching-in-python-dynamic-behavior/
         Spaz.on_punch_release = new_hook
